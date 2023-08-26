@@ -22,10 +22,17 @@ class Program
         humans[1].name = "Olga";
         humans[2].name = "Katerina";
 
+        humans[0].phoneNum = 356536;
+        humans[1].phoneNum = 756896;
+        humans[2].phoneNum = 956532;
 
-        for(int i = 0; i < humans.Length; i++)
+        humans[0].birthday = new DateTime(1996, 4, 17);
+        humans[1].birthday = new DateTime(1990, 11, 17);
+        humans[2].birthday = new DateTime(1992, 5, 16);
+
+        for (int i = 0; i < humans.Length; i++)
         {
-
+            if()
         }
         int[][] info = new int[4][];
         info[0] = new int[3];
