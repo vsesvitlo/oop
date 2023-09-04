@@ -104,7 +104,8 @@ class Program
 
 //3. Є масив {1, 2, 9, 7, 4, 4, 1, 2, 3,1}. Порахувати скільки в цьому класі є дзеркальних повторень.
 //Тобто на першій і останній позиції однакове, на другій і передостанній і тд. Попробуйте через 2 поінтери. 
-/*
+//Попробуйте на дзеркальне перетворення із вказівником на старт і кінець може вийде
+
 using System.Diagnostics.Metrics;
 
 namespace hometask_31_08;
@@ -117,38 +118,32 @@ class Program
         static int CountTheSame(int[] count)
         {
             int first = count[0];
-            int second = count[1];
+            int last = count[count.Length - 1];
             int result = 0;
-            int k = 0;
 
-            for (int i = 2; i < count.Length; i++)
+            for (int i = 1; i < count.Length; i++)
             {
-                if (k < count.Length)
+                if(first == last)
                 {
-                    first = count[k];
-                    if (first == second)
-                    {
-
-                        result++;
-                        Console.WriteLine(result);
-                        k++;
-                    }
-                    second = count[i];
-
-                    
+                    result++;
+                    //Console.WriteLine(first);
+                    //Console.WriteLine(last);
                 }
+                first = count[i];
+                last = count[count.Length - i];
 
             }
             return result;
 
         }
-        CountTheSame(new int[] { 1, 2, 9, 7, 4, 4, 1, 2, 3, 1 });
+        int count = CountTheSame(new int[] { 1, 2, 9, 7, 4, 4, 1, 2, 3, 1 });
+        Console.WriteLine(count);
     }
 }
-*/
+
 //4. Є масив a = {1, 2, 9, 7, 4, 1,1, 4, 2, 4, 1, 2, 3,1} і є ще один масив b = {1, 2, 4, 8}.
 //Яких чисел з масива b немає в масиві a
-
+/*
 using System.Diagnostics.Metrics;
 
 namespace hometask_31_08;
@@ -191,7 +186,7 @@ class Program
                     {
                         if (compare != arr1[n])
                         {
-                           // result[l] = compare;
+                            //result[l] = compare;
                             //Console.WriteLine(compare);
                         }
                         compare = arr2[j];
@@ -209,4 +204,4 @@ class Program
         }
         Compare(new int[] { 1, 2, 9, 7, 4, 1, 1, 4, 2, 4, 1, 2, 3, 1 }, new int[] { 20, 1, 2, 4, 8, 10});
     }
-}
+}*/
