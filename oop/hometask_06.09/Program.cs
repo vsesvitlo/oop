@@ -128,6 +128,8 @@ class Car
     public int fuelVolume100km;
     public int maxSpeed;
     public int seats;
+    static public int maxSeats = 7;
+   // static public List<>;
 
     public Car()
     {
@@ -262,11 +264,17 @@ class Car
         if (dir == '+')
         {
             this.seats += forChange;
+
+            if(this.seats > maxSeats)
+            {
+                this.seats = maxSeats;
+            }
+
         }
        else {
             this.seats -= forChange;
        }
-        
+        Car.maxSeats = 8;
     }
     //14. Створити метод, який змінює максимальну швидкість +
     public void ChangeSpeed(int forChange, char dir)
@@ -331,18 +339,21 @@ class Program
         Car HondaItalie = new Car(Honda);
         HondaItalie.ChangeOwner(Fiat.owner);
         Console.WriteLine(HondaItalie.owner);
+
+
+        List<long> NewList = new List<long>();
+        NewList.Add(4);
+        NewList.Add(34);
+        NewList.Add(74);
+        NewList.Add(104);
+        NewList.Add(14);
+        NewList[0] = 2;
+        NewList[4] = 2;
+
+        Console.WriteLine(NewList.Count());
+        Console.WriteLine(NewList[4]);
     }
 
 
 }
-/*public string title;
-    public string owner;
-    public int priceWithoutFuel;
-    public int yearOfProduction;
-    public int weightWithoutFuel;
-    public int fuelVolume;
-    public int runKm;
-    public int fuelVolume100km;
-    public int maxSpeed;
-    public int seats;
-*/
+
