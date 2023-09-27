@@ -89,9 +89,9 @@ public class Airplane
         return weightAirplane;
     }
     //4. Додати метод змінює вагу літака +
-    public void ChangeWeight()
+    public void ChangeWeight(int newWeignt)
     {
-        weightAirplane = 640000;
+        weightAirplane = newWeignt;
     }
     //5. Додати метод який повертає кількість сидінь
     public int Seats()
@@ -133,6 +133,10 @@ public class Airplane
         {
             seatsAirplane -= forDecreasing;
         }
+        else if(forDecreasing >= seatsAirplane)
+        {
+            seatsAirplane = 10;
+        }
     }
 
     //11. Додати метод який розраховує вартість польоту на 1000км за вказаним показником ціни палива за кг+
@@ -162,7 +166,7 @@ class Program
     {
         Airplane Mria = new Airplane("An-225 Mriya", "Antonov", 285000, 400, 1988, 500000000, 10, 300000, 15400, 1300);
         Console.WriteLine(Mria.Weight());
-        Mria.ChangeWeight();
+        Mria.ChangeWeight(640000);
         Console.WriteLine(Mria.weightAirplane);
         Console.WriteLine(Mria.seatsAirplane);
         Mria.ChangeSeats(6);
