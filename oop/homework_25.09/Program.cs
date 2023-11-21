@@ -27,6 +27,7 @@
 
 
 
+using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography;
 
 namespace homework_25._09;
@@ -42,10 +43,48 @@ public class Airplane
     public int consumptionFuelAirplanePer1000;
     public int rangeAirplane;
     public int maximumFuelAmmountAirplane;
+    public int MaximumWeightBaggage { get; }
+    const int wings = 2;
+    readonly int motors;
 
+    public int SeatsAirplane
+    {
+        get
+        {
+            return seatsAirplane;
+        }
+        set
+        {
+            if (value < 0 || value > 406)
+            {
+                seatsAirplane = 0;
+            }
+            else
+                seatsAirplane = value;
+        }
+
+    }
+    public int MaximumFuelAmmountAirplane
+    {
+        get
+        {
+            return maximumFuelAmmountAirplane;
+        }
+        set
+        {
+            if (value < 0 || value > 1300)
+            {
+                maximumFuelAmmountAirplane = 0;
+            }
+            else
+                maximumFuelAmmountAirplane = value;
+        }
+
+    }
     public Airplane(string name, string brand, int weight, int seats, int yearProduction, int price,
         int currentFuelAmmount, int consumption1000, int distance, int maximumFuelAmmount)
     {
+        motors = 4;
         nameAirplane = name;
         brandAirplane = brand;
         weightAirplane = weight;
@@ -83,8 +122,10 @@ public class Airplane
         rangeAirplane = 0;
         maximumFuelAmmountAirplane = 0;
     }
-    // 3. Додати метод який повертає вагу літака +
-    public int Weight()
+ 
+       
+        // 3. Додати метод який повертає вагу літака +
+        public int Weight()
     {
         return weightAirplane;
     }

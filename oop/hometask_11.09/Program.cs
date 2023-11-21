@@ -41,7 +41,41 @@ int runKm, int fuelVolume100km, int maxSpeed, int seats)
         this.maxSpeed = maxSpeed;
         this.seats = seats;
     }
-   // 1. Метод який приймає інший автомобіль і копіює з нього тільки пробіг
+    public int MaxSeats
+    {
+        get
+        {
+            return maxSeats;
+        }
+        set
+        {
+            if (value < 0 || value > 9)
+            {
+                maxSeats = 0;
+            }
+            else
+                maxSeats = value;
+        }
+
+    }
+    public int MaxSpeed
+    {
+        get
+        {
+            return maxSpeed;
+        }
+        set
+        {
+            if (value < 0 || value > 300)
+            {
+                maxSpeed = 0;
+            }
+            else
+                maxSpeed = value;
+        }
+
+    }
+    // 1. Метод який приймає інший автомобіль і копіює з нього тільки пробіг
 
     public void RunCopyCar(Car forChange)
     {
